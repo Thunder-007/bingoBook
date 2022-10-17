@@ -1,18 +1,21 @@
 from django.shortcuts import render
-from . models import Project,contactForm,Contact
+from .models import Project, contactForm, Contact
 from django.conf import settings
 from django.core.mail import send_mail
 from django.contrib.auth.models import User
 import threading
 
+
 # Create your views here.
 def index(request):
-    pinnedProjects = Project.objects.filter(pin = True)[:3]
-    return render(request, 'devpage/index.html',{'Projects':pinnedProjects})
+    pinnedProjects = Project.objects.filter(pin=True)[:3]
+    return render(request, 'devpage/index.html', {'Projects': pinnedProjects})
+
 
 def projects(request):
-    Projects = Project.objects.filter(show = True)
-    return render(request, 'devpage/projects.html',{'Projects': Projects})
+    Projects = Project.objects.filter(show=True)
+    return render(request, 'devpage/projects.html', {'Projects': Projects})
+
 
 def contact(request):
     if request.method == "POST":
@@ -33,7 +36,7 @@ def contact(request):
             # form = contactForm()
             # return render(request, 'devpage/contact.html', {'form': form, 'success': True})
         # else:
-            # form = contactForm()
-            # return render(request, 'devpage/contact.html', {'form': form, 'success': False})
+        # form = contactForm()
+        # return render(request, 'devpage/contact.html', {'form': form, 'success': False})
     form = contactForm()
-    return render(request, 'devpage/contact.html',{'form': form})
+    return render(request, 'devpage/contact.html', {'form': form})
