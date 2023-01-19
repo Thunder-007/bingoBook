@@ -20,18 +20,16 @@ import cloudinary.api
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ["SETTINGS_DEBUG"] == "True"
+DEBUG = os.environ.get("SETTINGS_DEBUG") == "True"
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -77,23 +75,23 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'bingoBook.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 try:
     DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.postgresql',
-                'NAME': os.environ["DB_NAME"],
-                'USER': os.environ["DB_USER"],
-                'PASSWORD': os.environ["DB_PASSWORD"],
-                'HOST': os.environ["DB_HOST"],
-                'PORT': os.environ["DB_PORT"],
-                'OPTIONS': {'sslmode': 'require'}
-            }
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.environ.get("DB_NAME"),
+            'USER': os.environ.get("DB_USER"),
+            'PASSWORD': os.environ.get("DB_PASSWORD"),
+            'HOST': os.environ.get("DB_HOST"),
+            'PORT': os.environ.get("DB_PORT"),
+            'OPTIONS': {'sslmode': 'require'}
+        }
     }
 except:
+    print("Yeah")
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -119,7 +117,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
@@ -131,7 +128,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
@@ -141,19 +137,19 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-CSRF_TRUSTED_ORIGINS = ['https://harsha.engineer',"https://thunderbook.azurewebsites.net"]
+CSRF_TRUSTED_ORIGINS = ['https://harsha.engineer', "https://thunderbook.azurewebsites.net"]
 # cloudinary API
 cloudinary.config(
-  cloud_name = os.environ["CLOUDINARY_NAME"],
-  api_key = os.environ["CLOUDINARY_API_KEY"],
-  api_secret = os.environ["CLOUDINARY_API_SECRET"]
+    cloud_name=os.environ.get("CLOUDINARY_NAME"),
+    api_key=os.environ.get("CLOUDINARY_API_KEY"),
+    api_secret=os.environ.get("CLOUDINARY_API_SECRET")
 )
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = os.environ['BOT_EMAIL']
-EMAIL_HOST_PASSWORD = os.environ['BOT_PASSWORD']
+EMAIL_HOST_USER = os.environ.get('BOT_EMAIL')
+EMAIL_HOST_PASSWORD = os.environ.get('BOT_PASSWORD')
 
 django_heroku.settings(locals())

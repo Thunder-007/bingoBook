@@ -281,41 +281,49 @@
         </h1>
         <div class="container">
             <div class="row justify-content-center align-items-center text-center mx-auto ">
-                {% for project in Projects %}
-                    <div class="col-md-4 py-2  d-flex justify-content-center">
-                        <div class="card shadow-sm">
-                            <img src="{{ project.projectTemplate.url }}" height="225" width="100%">
-                            <div class="card-body">
-                                <h6 class="text-center">
-                                    {{ project.projectTitle }}
-                                </h6>
-                                <p class="card-text">{{ project.desc }}</p>
-                                <span class="badge rounded-pill bg-{{ project.tags.color }} mb-3">{{ project.tags.text }}</span>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-warning btn-outline-secondary"><a
-                                                href="{% url 'projects' %}" target="_blank" type="button"
-                                                class="btn">View</a></button>
+                {% if Projects %}
+                    {% for project in Projects %}
+                        <div class="col-md-4 py-2  d-flex justify-content-center">
+                            <div class="card shadow-sm">
+                                <img src="{{ project.projectTemplate.url }}" height="225" width="100%">
+                                <div class="card-body">
+                                    <h6 class="text-center">
+                                        {{ project.projectTitle }}
+                                    </h6>
+                                    <p class="card-text">{{ project.desc }}</p>
+                                    <span class="badge rounded-pill bg-{{ project.tags.color }} mb-3">{{ project.tags.text }}</span>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-sm btn-warning btn-outline-secondary">
+                                                <a
+                                                        href="{% url 'projects' %}" target="_blank" type="button"
+                                                        class="btn">View</a></button>
+                                        </div>
+                                        <small class="text-muted">{{ project.created_at }}</small>
                                     </div>
-                                    <small class="text-muted">{{ project.created_at }}</small>
-                                </div>
 
+                                </div>
                             </div>
                         </div>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
+                    <h1 class="text-center">
+                        <button class="btn btn-danger">
+                            <a href="{% url 'projects' %}" class="btn" style="color: white"> View All</a>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                 class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                      d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                            </svg>
+                        </button>
+                    </h1>
+                {% else %}
+                    <h1 class="text-center" style="font-family: Courier">
+                        DB under migrations
+                    </h1>
+                {% endif %}
             </div>
         </div>
-        <h1 class="text-center">
-            <button class="btn btn-danger">
-                <a href="{% url 'projects' %}" class="btn" style="color: white"> View All</a>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                     class="bi bi-arrow-right" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                          d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-                </svg>
-            </button>
-        </h1>
+
     </section>
     <br>
     <section>

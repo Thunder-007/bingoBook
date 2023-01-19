@@ -27,12 +27,12 @@ def contact(request):
             concern = request.POST['desc']
             contactObj = Contact(name=name, email=email, phone=phone, desc=concern)
             contactObj.save()
-            subject = f'Hi Harsha you got a message from {name}'
-            message = f'phone: {phone}\nemail: {email}\nconcern: {concern}'
-            email_from = settings.EMAIL_HOST_USER
-            admin_user_emails = list(User.objects.filter(is_superuser=True).values_list('email', flat=True))
-            mailThread = threading.Thread(target=send_mail, args=(subject, message, email_from, admin_user_emails,))
-            mailThread.start()
+            # subject = f'Hi Harsha you got a message from {name}'
+            # message = f'phone: {phone}\nemail: {email}\nconcern: {concern}'
+            # email_from = settings.EMAIL_HOST_USER
+            # admin_user_emails = list(User.objects.filter(is_superuser=True).values_list('email', flat=True))
+            # mailThread = threading.Thread(target=send_mail, args=(subject, message, email_from, admin_user_emails,))
+            # mailThread.start()
             # form = contactForm()
             # return render(request, 'devpage/contact.html', {'form': form, 'success': True})
         # else:
