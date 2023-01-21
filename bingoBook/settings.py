@@ -90,8 +90,8 @@ try:
             'OPTIONS': {'sslmode': 'require'}
         }
     }
+    print(1/0)
 except:
-    print("Yeah")
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',

@@ -1,3 +1,5 @@
+import os
+
 from django.shortcuts import render
 from .models import Project, contactForm, Contact
 from django.conf import settings
@@ -33,10 +35,10 @@ def contact(request):
             # admin_user_emails = list(User.objects.filter(is_superuser=True).values_list('email', flat=True))
             # mailThread = threading.Thread(target=send_mail, args=(subject, message, email_from, admin_user_emails,))
             # mailThread.start()
-            # form = contactForm()
-            # return render(request, 'devpage/contact.html', {'form': form, 'success': True})
-        # else:
-        # form = contactForm()
-        # return render(request, 'devpage/contact.html', {'form': form, 'success': False})
+            form = contactForm()
+            return render(request, 'devpage/contact.html', {'form': form, 'success': True})
+        else:
+            form = contactForm()
+            return render(request, 'devpage/contact.html', {'form': form, 'success': False})
     form = contactForm()
     return render(request, 'devpage/contact.html', {'form': form})

@@ -8,7 +8,6 @@
 {% endblock %}
 {% block content %}
     <style>
-        /* skills css */
         .box {
             width: 100%;
         }
@@ -29,9 +28,6 @@
             height: 160px;
             color: #c92424;
         }
-
-
-        /* skills css end */
 
         .scroller {
             height: 1.2em;
@@ -91,13 +87,18 @@
         <div class="bg-circle-3 bg-circle"></div>
         <div class="bg-circle-4 bg-circle"></div>
     </header>
+    <section class="bg-dark text-white text-center">
+            <h1 class="animate-charcter my-5">
+                Know me
+            </h1>
+    </section>
     <section id="about">
         <div class="container">
             <br>
             <div class="row align-items-center">
-                <h1 class="animate-charcter py-5 my-5">
-                    Know me
-                </h1>
+                {#                <h1 class="animate-charcter py-5 my-5">#}
+                {#                    Know me#}
+                {#                </h1>#}
                 <h1 class="text-center" style="font-family: Courier">
                     Education
                 </h1>
@@ -239,21 +240,27 @@
                     <div class="chart" data-percent="87"></div>
                     <h2>Python</h2>
                 </div>
+
                 <div class="box col">
                     <div class="chart" data-percent="80"></div>
                     <h2>C</h2>
                 </div>
                 <div class="box col">
                     <div class="chart" data-percent="75"></div>
+                    <h2>JavaScript</h2>
+                </div>
+                <div class="box col">
+                    <div class="chart" data-percent="70"></div>
                     <h2> Java</h2>
                 </div>
                 <div class="box col">
                     <div class="chart" data-percent="65"></div>
-                    <h2>C++</h2>
+                    <h2> R</h2>
                 </div>
+
                 <div class="box col">
-                    <div class="chart" data-percent="50"></div>
-                    <h2>JavaScript</h2>
+                    <div class="chart" data-percent="65"></div>
+                    <h2>C++</h2>
                 </div>
                 <div class="box col">
                     <div class="chart" data-percent="40"></div>
@@ -275,8 +282,8 @@
             });
         </script>
     </section>
-    <section>
-        <h1 class="text-center my-5" style="font-family: Courier">
+    <section class="bg-dark text-light">
+        <h1 class="text-center my-3" style="font-family: Courier">
             Pinned Projects
         </h1>
         <div class="container">
@@ -318,35 +325,81 @@
                     </h1>
                 {% else %}
                     <h1 class="text-center" style="font-family: Courier">
-                        DB under migrations
+                        No projects in db to load
                     </h1>
                 {% endif %}
             </div>
         </div>
 
     </section>
-    <br>
     <section>
-        <h1 class="text-center my-5" style="font-family: Courier">
+        <h1 class="text-center my-2" style="font-family: Courier">
             Hobbies
+            <h2>
+                <ul class="text-center list-unstyled">
+                    <li>Swimming</li>
+                    <li>Acrobatics</li>
+                    <li>Vibing to Music</li>
+                    <li>Memes</li>
+                    <li>Learning</li>
+                </ul>
+            </h2>
         </h1>
-        <div class="text-center">
-            <h1>Pending</h1>
-        </div>
+
+        {#        <div class="text-center">#}
+        {#            <h1>Pending</h1>#}
+        {#        </div>#}
     </section>
-    <section>
-        <h1 class="text-center my-5" style="font-family: Courier">
+    <section class="bg-dark text-light">
+        <h1 class="text-center my-6" style="font-family: Courier">
             Skills
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <ul class="list-unstyled text-center">
+                            <li><img class="my-1" src="https://skillicons.dev/icons?i=react"> React</li>
+                            <li><img class="my-1" src="https://skillicons.dev/icons?i=azure"> Azure</li>
+                            <li><img class="my-1" src="https://skillicons.dev/icons?i=git"> Git</li>
+                            <li><img class="my-1" src="https://skillicons.dev/icons?i=raspberrypi"> RPI</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm">
+                        <ul class="list-unstyled text-center">
+                            <li><img class="my-1" src="https://skillicons.dev/icons?i=tensorflow"> Tensorflow</li>
+                            <li><img class="my-1" src="https://skillicons.dev/icons?i=postgres"> Postgres</li>
+                            <li><img class="my-1" src="https://skillicons.dev/icons?i=flask"> Flask</li>
+                            <li><img class="my-1" src="https://skillicons.dev/icons?i=linux"> Linux</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm">
+                        <ul class="list-unstyled text-center">
+                            <li><img class="my-1" src="https://skillicons.dev/icons?i=arduino"> Arduino</li>
+                            <li><img class="my-1" src="https://skillicons.dev/icons?i=pytorch"> Pytorch</li>
+                            <li><img class="my-1" src="https://skillicons.dev/icons?i=django"> Django</li>
+                            <li><img class="my-1" src="https://skillicons.dev/icons?i=docker"> Docker</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
         </h1>
-        <div class="text-center">
-            <h1>Pending</h1>
-        </div>
     </section>
     <section>
         <div class="text-center">
-            <h3 class="my-5">
-                Under Construction .... Feel free to contribute visit github for more info
+            <h1>
+                Experience
+            </h1>
+            <h3 class="my-2">
+                No professional experience till, free to work
             </h3>
         </div>
     </section>
+    {#    <section class="bg-dark text-light mb-0">#}
+    {#        <div class="text-center">#}
+    {#            <h1 class="mb-0">#}
+    {#                Achivements#}
+    {#            </h1>#}
+    {##}
+    {#        </div>#}
+    {#    </section>#}
 {% endblock %}
