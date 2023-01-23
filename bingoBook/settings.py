@@ -136,7 +136,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-CSRF_TRUSTED_ORIGINS = ['https://harsha.engineer', "https://thunderbook.azurewebsites.net"]
+CSRF_TRUSTED_ORIGINS = ['https://harsha.engineer', "https://thunderbook.azurewebsites.net", "https://harsha07.tech/"]
 # cloudinary API
 cloudinary.config(
     cloud_name=os.environ.get("CLOUDINARY_NAME"),
